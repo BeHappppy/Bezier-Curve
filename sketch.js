@@ -4,7 +4,7 @@ var speed = 5; //how fast the points move
 var pointSwitch = 1; //wich points will move? (control points 1 & 4 or 2 & 3)
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(screen.availWidth, screen.availHeight);
 }
 
 function draw() {
