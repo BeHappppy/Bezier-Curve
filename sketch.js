@@ -5,13 +5,6 @@ var p3y = 400; //control point 3 y pos
 var speed = 5; //how fast the points move
 
 
-var p2x = 100; //control point 2 x pos
-var p2y = 100; //control point 2 y pos
-var p3x = 400; //control point 3 x pos
-var p3y = 400; //control point 3 y pos
-var speed = 5; //how fast the points move
-
-
 function setup() {
   createCanvas(600, 600);
 }
