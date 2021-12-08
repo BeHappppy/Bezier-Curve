@@ -2,17 +2,29 @@ var px = [0, 100, 400, 600]; //control points x pos
 var py = [300, 100, 400, 300]; //control points y pos
 var speed = 5; //how fast the points move
 var pointSwitch = 1; //wich points will move? (control points 1 & 4 or 2 & 3)
+var c1c4;
+var c2c3;
 
 function setup() {
   createCanvas(600, 600);
 }
 
 function draw() {
-  background(0);
+  background(64, 214, 127);
+  
+  theCurve();
+}
 
+//function to draw the bezier curve
+function theCurve () {
+  
   //change what pressing WASD or the arrow keys do (change control points 1 & 4 or 2 & 3)
   switch(pointSwitch) {
     case 0:
+      //colour the points being moved
+      c1c4 = 255;
+      c2c3 = 180;
+      
       //changing the 2nd control point
       if(keyIsDown(65)) {
          px[0] -= speed;
@@ -43,6 +55,10 @@ function draw() {
       break;
       
     case 1:
+      //colour the points being moved
+      c1c4 = 180;
+      c2c3 = 255;
+      
       //changing the 2nd control point
       if(keyIsDown(65)) {
          px[1] -= speed;
@@ -73,30 +89,28 @@ function draw() {
       break;
   }
   
-  theCurve();
-}
-
-//function to draw the bezier curve
-function theCurve () {
   //lines
   strokeWeight(2);
-  stroke(200);
+  stroke(220);
   line(px[0], py[0], px[1], py[1])
   line(px[2], py[2], px[3], py[3]);
   
-  //control points
-  stroke(255);
-  strokeWeight(20);
-  point(px[0], py[0]);
-  point(px[1], py[1]);
-  point(px[2], py[2]);
-  point(px[3], py[3]);
-
   //the bezier curve
   noFill();
-  strokeWeight(4);
-  stroke(255);
+  strokeWeight(6);
+  stroke(162, 71, 222);
   bezier(px[0], py[0], px[1], py[1], px[2], py[2], px[3], py[3]);
+  
+  //control points
+  strokeWeight(20);
+  stroke(c1c4);
+  point(px[0], py[0]);
+  point(px[3], py[3]);
+  
+  stroke(c2c3);
+  point(px[1], py[1]);
+  point(px[2], py[2]);
+
 }
 
 //control the varaible 'pointSwitch' so the control points that switch are changed
