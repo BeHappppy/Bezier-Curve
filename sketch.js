@@ -1,5 +1,6 @@
 var px = [0, 100, 400, 600]; //control points x pos
 var py = [300, 100, 400, 300]; //control points y pos
+var reset = 0;
 var speed = 5; //how fast the points move
 var pointSwitch = 1; //wich points will move? (control points 1 & 4 or 2 & 3)
 var c1c4;
@@ -10,7 +11,19 @@ function setup() {
 }
 
 function draw() {
-  background(64, 214, 127);
+  background(122, 240, 173);
+  
+  //reset button
+  fill(214, 56, 61);
+  strokeWeight(4);
+  stroke(148, 25, 29);
+  rect(10, 10, 50, 50);
+  if(mouseX >= 10 && mouseX <= 60 && mouseY >= 10 && mouseY <=60) {
+    reset = 1;
+  }
+  else {
+    reset = 0;
+  }
   
   theCurve();
 }
@@ -122,5 +135,13 @@ function keyPressed () {
     else {
         pointSwitch = 1;
     }
+  }
+}
+
+//reset the points
+function mousePressed () {
+  if (reset === 1) {
+    px = [0, 100, 400, 600]; 
+    py = [300, 100, 400, 300]; 
   }
 }
