@@ -9,17 +9,7 @@ function setup() {
 
 function draw() {
   background(0);
-  
-  //change which points are changing with the space bar
-  if(keyIsDown(32)) {
-    if (pointSwitch === 1) {
-      pointSwitch = 0;
-    }
-    else {
-      pointSwitch = 1;
-    }
-  }
-  
+
   //change what pressing WASD or the arrow keys do (change control points 1 & 4 or 2 & 3)
   switch(pointSwitch) {
     case 0:
@@ -83,6 +73,17 @@ function draw() {
       break;
   }
   
+  theCurve();
+}
+
+//function to draw the bezier curve
+function theCurve () {
+  //lines
+  strokeWeight(2);
+  stroke(200);
+  line(px[0], py[0], px[1], py[1])
+  line(px[2], py[2], px[3], py[3]);
+  
   //control points
   stroke(255);
   strokeWeight(20);
@@ -90,15 +91,22 @@ function draw() {
   point(px[1], py[1]);
   point(px[2], py[2]);
   point(px[3], py[3]);
-  
-  //lines
-  strokeWeight(2);
-  line(px[0], py[0], px[1], py[1])
-  line(px[2], py[2], px[3], py[3]);
-  
+
   //the bezier curve
   noFill();
   strokeWeight(4);
+  stroke(255);
   bezier(px[0], py[0], px[1], py[1], px[2], py[2], px[3], py[3]);
 }
 
+//control the varaible 'pointSwitch' so the control points that switch are changed
+function keyPressed () {
+  if (keyCode === 32) {
+    if (pointSwitch === 1) {
+        pointSwitch = 0;
+      }
+    else {
+        pointSwitch = 1;
+    }
+  }
+}
