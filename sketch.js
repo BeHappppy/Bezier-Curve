@@ -7,7 +7,7 @@ var c1c4;
 var c2c3;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(screen.width, screen.height);
 }
 
 function draw() {
@@ -105,7 +105,7 @@ function theCurve () {
   //lines
   strokeWeight(2);
   stroke(220);
-  line(px[0], py[0], px[1], py[1])
+  line(px[0], py[0], px[1], py[1]);
   line(px[2], py[2], px[3], py[3]);
   
   //the bezier curve
