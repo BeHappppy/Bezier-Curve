@@ -7,7 +7,7 @@ var c1c4;
 var c2c3;
 
 function setup() {
-  createCanvas(screen.width, screen.height - 1/8);
+  createCanvas(600, 600);
 }
 
 function draw() {
